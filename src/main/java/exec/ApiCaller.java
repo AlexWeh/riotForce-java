@@ -63,17 +63,16 @@ public class ApiCaller {
                 in.close();
                 parseResponse(content.toString());
             }
-            
             con.disconnect();
         } catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
     private void parseResponse(String content) {
         Gson gson = new Gson();
         MatchDto match = gson.fromJson(content, MatchDto.class);
+        database.persist(match);
         System.out.println(content);
     }
 }
