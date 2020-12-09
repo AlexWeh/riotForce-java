@@ -13,7 +13,7 @@ public class Grabber {
     public static void main(String[] args) {
         TicketQueue<Ticket> ticketQueue = new TicketQueue<>();
 
-        CredentialManager credentialManager = new CredentialManager();
+        CredentialManager credentialManager = new CredentialManager(args[0]);
         DatabaseManager database = new DatabaseManager();
         ApiCaller api = new ApiCaller(ticketQueue, database);
 

@@ -86,7 +86,7 @@ public class ApiCaller {
                         break;
 
                     case "participant":
-                        System.out.println("Successfully queried API for participant" + request.participantPuuid);
+                        System.out.println("Successfully queried API for participant " + request.participantPuuid);
                         parseParticipantDto(content.toString());
                         break;
                 }
