@@ -36,114 +36,121 @@
     </column>
     <column id="19" parent="6" name="companion_id">
       <Position>4</Position>
-      <DataType>INTEGER|0s</DataType>
+      <DataType>TEXT|0s</DataType>
     </column>
-    <key id="20" parent="6">
+    <index id="20" parent="6" name="sqlite_autoindex_Companion_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>companion_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="21" parent="6">
       <ColNames>companion_id</ColNames>
       <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Companion_1</UnderlyingIndexName>
     </key>
-    <column id="21" parent="7" name="game_datetime">
+    <column id="22" parent="7" name="game_datetime">
       <Position>1</Position>
       <DataType>NUMERIC|0s</DataType>
     </column>
-    <column id="22" parent="7" name="game_length">
+    <column id="23" parent="7" name="game_length">
       <Position>2</Position>
       <DataType>NUMERIC|0s</DataType>
     </column>
-    <column id="23" parent="7" name="game_variation">
+    <column id="24" parent="7" name="game_variation">
       <Position>3</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="24" parent="7" name="game_version">
+    <column id="25" parent="7" name="game_version">
       <Position>4</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="25" parent="7" name="queue_id">
+    <column id="26" parent="7" name="queue_id">
       <Position>5</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="26" parent="7" name="tft_set_number">
+    <column id="27" parent="7" name="tft_set_number">
       <Position>6</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="27" parent="7" name="info_id">
+    <column id="28" parent="7" name="info_id">
       <Position>7</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <key id="28" parent="7">
+    <key id="29" parent="7">
       <ColNames>info_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="29" parent="8" name="unit_id">
+    <column id="30" parent="8" name="unit_id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="30" parent="8" name="item_id">
+    <column id="31" parent="8" name="item_id">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="31" parent="9" name="metadata_id">
+    <index id="32" parent="8" name="sqlite_autoindex_Items_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>unit_id
+item_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="33" parent="8">
+      <ColNames>unit_id
+item_id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Items_1</UnderlyingIndexName>
+    </key>
+    <column id="34" parent="9" name="metadata_id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="32" parent="9" name="info_id">
+    <column id="35" parent="9" name="info_id">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <index id="33" parent="9" name="sqlite_autoindex_Match_1">
+    <index id="36" parent="9" name="sqlite_autoindex_Match_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>metadata_id
 info_id</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="34" parent="9">
+    <key id="37" parent="9">
       <ColNames>metadata_id
 info_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_Match_1</UnderlyingIndexName>
     </key>
-    <foreign-key id="35" parent="9">
+    <foreign-key id="38" parent="9">
       <ColNames>metadata_id</ColNames>
       <RefTableName>Metadata</RefTableName>
       <RefColNames>metadata_id</RefColNames>
     </foreign-key>
-    <column id="36" parent="10" name="data_version">
+    <column id="39" parent="10" name="data_version">
       <Position>1</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="37" parent="10" name="match_id">
+    <column id="40" parent="10" name="match_id">
       <Position>2</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="38" parent="10" name="metadata_id">
-      <Position>3</Position>
-      <DataType>INTEGER|0s</DataType>
-    </column>
-    <column id="39" parent="10" name="participants">
-      <Position>4</Position>
-      <DataType>INTEGER|0s</DataType>
-    </column>
-    <index id="40" parent="10" name="sqlite_autoindex_Metadata_1">
+    <index id="41" parent="10" name="sqlite_autoindex_Metadata_1">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>metadata_id</ColNames>
+      <ColNames>match_id</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="41" parent="10">
-      <ColNames>metadata_id</ColNames>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>sqlite_autoindex_Metadata_1</UnderlyingIndexName>
-    </key>
     <key id="42" parent="10">
-      <ColNames>metadata_id</ColNames>
+      <ColNames>match_id</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_Metadata_1</UnderlyingIndexName>
     </key>
-    <column id="43" parent="11" name="Metadata">
+    <column id="43" parent="11" name="match_id">
       <Position>1</Position>
-      <DataType>INTEGER|0s</DataType>
+      <DataType>TEXT|0s</DataType>
     </column>
-    <column id="44" parent="11" name="Participant">
+    <column id="44" parent="11" name="participant">
       <Position>2</Position>
       <DataType>TEXT|0s</DataType>
     </column>
@@ -185,81 +192,92 @@ info_id</ColNames>
     </column>
     <column id="54" parent="12" name="trait_id">
       <Position>10</Position>
-      <DataType>INTEGER|0s</DataType>
+      <DataType>TEXT|0s</DataType>
     </column>
     <column id="55" parent="12" name="unit_id">
       <Position>11</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="56" parent="13" name="name">
+    <column id="56" parent="12" name="match_id">
+      <Position>12</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="57" parent="13" name="name">
       <Position>1</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="57" parent="13" name="num_units">
+    <column id="58" parent="13" name="num_units">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="58" parent="13" name="style">
+    <column id="59" parent="13" name="style">
       <Position>3</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="59" parent="13" name="tier_current">
+    <column id="60" parent="13" name="tier_current">
       <Position>4</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="60" parent="13" name="tier_total">
+    <column id="61" parent="13" name="tier_total">
       <Position>5</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="61" parent="13" name="trait_id">
+    <column id="62" parent="13" name="trait_id">
       <Position>6</Position>
-      <DataType>INTEGER|0s</DataType>
+      <DataType>TEXT|0s</DataType>
     </column>
-    <column id="62" parent="14" name="character_id">
+    <column id="63" parent="14" name="character_id">
       <Position>1</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="63" parent="14" name="chosen">
+    <column id="64" parent="14" name="chosen">
       <Position>2</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="64" parent="14" name="name">
+    <column id="65" parent="14" name="name">
       <Position>3</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="65" parent="14" name="rarity">
+    <column id="66" parent="14" name="rarity">
       <Position>4</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="66" parent="14" name="tier">
+    <column id="67" parent="14" name="tier">
       <Position>5</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="67" parent="14" name="unit_id">
+    <column id="68" parent="14" name="unit_id">
       <Position>6</Position>
-      <DataType>INTEGER|0s</DataType>
+      <DataType>TEXT|0s</DataType>
     </column>
-    <key id="68" parent="14">
+    <index id="69" parent="14" name="sqlite_autoindex_Unit_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>unit_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="70" parent="14">
       <ColNames>unit_id</ColNames>
       <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_Unit_1</UnderlyingIndexName>
     </key>
-    <column id="69" parent="15" name="type">
+    <column id="71" parent="15" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="70" parent="15" name="name">
+    <column id="72" parent="15" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="71" parent="15" name="tbl_name">
+    <column id="73" parent="15" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="72" parent="15" name="rootpage">
+    <column id="74" parent="15" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="73" parent="15" name="sql">
+    <column id="75" parent="15" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>

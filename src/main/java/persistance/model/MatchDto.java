@@ -3,58 +3,58 @@ package persistance.model;
 import java.util.List;
 
 public class MatchDto {
-    MetadataDto metadata;
-    InfoDto info;
+    public MetadataDto metadata;
+    public InfoDto info;
 
     public class MetadataDto {
-        String data_version;
-        String match_id;
-        List<String> participants;
+        public String data_version;
+        public String match_id;
+        public List<String> participants;
     }
 
     public class InfoDto {
-        long game_datetime;
-        float game_length;
-        String game_variation;
-        String game_version;
-        List<ParticipantDto> participants;
-        int queue_id;
-        int tft_set_number;
+        public long game_datetime;
+        public float game_length;
+        public String game_variation;
+        public String game_version;
+        public List<ParticipantDto> participants;
+        public int queue_id;
+        public int tft_set_number;
 
         public class ParticipantDto {
-            CompanionDto companion;
-            int gold_left;
-            int last_round;
-            int level;
-            int placement;
-            int player_eliminated;
-            String puuid;
-            float time_eliminated;
-            int total_damage_to_players;
-            List<TraitDto> traits;
-            List<UnitDto> units;
+            public CompanionDto companion;
+            public int gold_left;
+            public int last_round;
+            public int level;
+            public int placement;
+            public int player_eliminated;
+            public String puuid;
+            public float time_eliminated;
+            public int total_damage_to_players;
+            public List<TraitDto> traits;
+            public List<UnitDto> units;
 
             public class CompanionDto {
-                String content_ID;
-                int skin_id;
-                String species;
+                public String content_ID;
+                public int skin_id;
+                public String species;
             }
 
             public class TraitDto {
-                String name;
-                int num_units;
-                int style;
-                int tier_current;
-                int tier_total;
+                public String name;
+                public int num_units;
+                public int style;
+                public int tier_current;
+                public int tier_total;
             }
 
             public class UnitDto {
-                List<Integer> items;
-                String character_id;
-                String chosen;
-                String name;
-                int rarity;
-                int tier;
+                public List<Integer> items;
+                public String character_id;
+                public String chosen;
+                public String name;
+                public int rarity;
+                public int tier;
             }
 
         }

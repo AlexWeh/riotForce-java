@@ -18,6 +18,7 @@ public class TicketDispenser {
                     e.printStackTrace();
                 }
                 createTicket(credential);
+                System.out.println("New Ticket created");
             }
         });
         thread.start();

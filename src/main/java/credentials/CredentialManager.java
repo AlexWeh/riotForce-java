@@ -12,7 +12,7 @@ public class CredentialManager {
     }
 
     private void loadCredentials(){
-        credentialList.add(new Credential("RGAPI-d387b36a-88f6-447a-866c-553b944264cb", LocalDate.now()));
+        credentialList.add(new Credential("RGAPI-2092ee71-fed2-48bd-864a-e166f215865e", LocalDate.now()));
     }
 
     public ArrayList<Credential> getCredentials() {
