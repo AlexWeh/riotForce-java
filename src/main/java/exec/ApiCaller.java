@@ -10,12 +10,11 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ApiCaller {
-
-    //Todo Fix international routing values
 
     private final TicketQueue ticketDispenser;
     private final DatabaseManager database;
@@ -27,10 +26,9 @@ public class ApiCaller {
     }
 
     public void startCrawl() {
-        database.loadMatchIdsToCache();
         System.out.println("Started Crawl");
         requestBuffer.add(new ApiRequest("EUW1_4936094541"));
-        while (true) {
+        while (true){
             scheduleApiCall();
         }
     }
@@ -58,7 +56,6 @@ public class ApiCaller {
             } else {
                 System.out.println("Request buffer empty");
             }
-
         }
     }
 
@@ -100,20 +97,29 @@ public class ApiCaller {
     private void parseMatchDto(String content) {
         Gson gson = new Gson();
         MatchDto match = gson.fromJson(content, MatchDto.class);
-        DatabaseManager db = new DatabaseManager();
-        ArrayList<MatchDto.InfoDto.ParticipantDto> successParticipants = db.persist(match);
-        for (MatchDto.InfoDto.ParticipantDto participant : successParticipants) {
-            requestBuffer.add(new ApiRequest(participant));
+        ArrayList<MatchDto.InfoDto.ParticipantDto> successParticipants = null;
+        try {
+            successParticipants = database.persist(match);
+            if (successParticipants != null){
+                for (MatchDto.InfoDto.ParticipantDto participant : successParticipants) {
+                    requestBuffer.add(new ApiRequest(participant, match.metadata.match_id));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
     private void parseParticipantDto(String content) {
         Gson gson = new Gson();
         String[] matchIds = gson.fromJson(content, String[].class);
-        DatabaseManager db = new DatabaseManager();
         for (String matchId : matchIds) {
-            if (!db.checkIfMatchExists(matchId)){
-                requestBuffer.add(new ApiRequest(matchId));
+            try {
+                if (!database.checkIfMatchExists(matchId)){
+                    requestBuffer.add(new ApiRequest(matchId));
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
     }
